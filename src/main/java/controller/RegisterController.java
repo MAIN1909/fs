@@ -32,7 +32,7 @@ public class RegisterController {
                          @RequestParam String pass,
                          @RequestParam String cpass,
                          HttpServletResponse resp) throws IOException {
-        if (userService.isUserExists(login) && !login.equals(null) && userService.isPassConfirm(pass, cpass)) {
+        if (userService.isUserExists(login) && userService.isPassConfirm(pass, cpass)) {
             userService.save(login, pass);
             resp.sendRedirect("/fs/main/");
 
