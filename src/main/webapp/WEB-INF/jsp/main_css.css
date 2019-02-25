@@ -1,0 +1,24 @@
+.container {
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 15px;
+
+}
+
+.item {
+    display: inline-block;
+    width: 25%;
+    height: auto;
+    border: 2px solid black;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.item:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
