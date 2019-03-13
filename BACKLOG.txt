@@ -63,4 +63,4 @@ YOU NEED TO CREATE TESTS TO EVERY CONTROLLER AND SERVICE!!!
 
 40) fill method to calculate users points
 
-41) create 10 new cards
++++41) create 10 new cards
