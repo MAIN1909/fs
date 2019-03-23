@@ -1,13 +1,17 @@
 
 body {
-    background: #b4b4b4;
+    background-image: url("http://i.imgur.com/yslCSDR.jpg");
+
+    background-position: center;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
 }
 
 
 nav {
-    padding: 20px 20px 20px 300px;
-    width: 1640px;
-    text-align: left;
+    text-align: center;
 }
 
 h2 {

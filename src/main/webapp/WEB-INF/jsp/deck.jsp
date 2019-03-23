@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Deck Maker</title>
     <style>
         body {
             background: #b4b4b4;
         }
         table, th, td {
-            border: 1px solid black;
+            border: 2px solid black;
             border-collapse: collapse;
         }
 
@@ -18,9 +18,7 @@
         }
 
         nav {
-            padding: 20px 20px 20px 600px;
-            width: 640px;
-            text-align: left;
+            text-align: center;
         }
 
         h2 {
@@ -69,7 +67,9 @@
                                 <form action="/fs/deck?id=-${i.id}" method="post">
                                     <div class="item">
                                             ${i.name}<br/>
+                                        <h3>${i.name} Cost:${i.cost}</h3>
                                         <img src='${i.pic}' alt='card'/>
+                                        <h3>${i.damage} ${i.armor}</h3>
                                     </div>
                                     <input type="submit" value="Remove"/>
                                 </form>
@@ -81,7 +81,9 @@
                             <form action="/fs/deck?id=-${i.id}" method="post">
                                 <div class="item">
                                         ${i.name}<br/>
+                                    <h3>${i.name} Cost:${i.cost}</h3>
                                     <img src='${i.pic}' alt='card'/>
+                                    <h3>${i.damage} ${i.armor}</h3>
                                 </div>
                                 <input type="submit" value="Remove"/>
 
@@ -109,9 +111,10 @@
                             <form action="/fs/deck?id=${i.id}" method="post">
                                 <div class="item">
                                         ${i.name}<br/>
+                                    <h3>${i.name} Cost:${i.cost}</h3>
                                     <img src='${i.pic}' alt='card'/>
+                                    <h3>${i.damage} ${i.armor}</h3>
                                 </div>
-
                                 <input type="submit" value="Add"/>
                             </form>
                         </td>
@@ -123,7 +126,9 @@
 
                                 <div class="item">
                                         ${i.name}<br/>
+                                    <h3>${i.name} Cost:${i.cost}</h3>
                                     <img src='${i.pic}' alt='card'/>
+                                    <h3>${i.damage} ${i.armor}</h3>
                                 </div>
                                 <input type="submit" value="Add"/>
                             </form>

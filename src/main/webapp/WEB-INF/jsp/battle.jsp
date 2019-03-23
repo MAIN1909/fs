@@ -3,6 +3,15 @@
 <html>
 <style>
     <%@include file="main_css.css"%>
+    body {
+        background-image: url("https://s3.amazonaws.com/user-media.venngage.com/299799-53374269481033ba23118a23eb394d20.jpg");
+
+        background-position: center;
+        -moz-background-size: 96%;
+        -webkit-background-size: 96%;
+        -o-background-size: 96%;
+        background-size: 96%;
+    }
 </style>
 <head>
     <title>Battle</title>

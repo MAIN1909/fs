@@ -2,7 +2,13 @@
 <html>
 <style>
     body {
-        background: #b4b4b4;
+        background-image: url("https://cdn.dribbble.com/users/2297452/screenshots/5289768/comp_1_1.gif");
+
+        background-position: center;
+        -moz-background-size: 80%;
+        -webkit-background-size: 80%;
+        -o-background-size: 80%;
+        background-size: 80%;
     }
 </style>
 <head>

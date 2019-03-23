@@ -33,6 +33,7 @@
             <h3>${i.name}</h3>
             <h3>${i.cost}</h3>
             <img src='${i.pic}' alt='card'/>
+            <h3>${i.damage} ${i.armor}</h3>
             <br/>
         </div>
     </c:forEach>
