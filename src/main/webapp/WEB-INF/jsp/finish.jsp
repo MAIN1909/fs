@@ -30,7 +30,7 @@
     ${b.player2.login} WIN!
 </c:if>
 </div>
-<form action="/fs/main" method="get">
+<form action="/fs/finish" method="post">
     <input type="submit" value="Exit"/>
 </form>
     <div align='center' class="topnav">

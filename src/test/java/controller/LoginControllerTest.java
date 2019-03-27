@@ -53,8 +53,9 @@ public class LoginControllerTest {
         controller.login("login", "pass", req, resp);
         verify(userService, times(1)).getByLogin("login");
         verify(user, times(1)).getPass();
+        verify(userService, times(1)).setUserAttributeToSession(session, user);
         verify(req, times(1)).getSession();
-        verify(session, times(1)).setAttribute(anyString(), any());
+        verify(userService, times(1)).addUsersOnline(user);
         verify(resp, times(1)).sendRedirect(anyString());
     }
 
@@ -68,7 +69,6 @@ public class LoginControllerTest {
         verify(resp, times(1)).sendRedirect(anyString());
         verify(user, times(0)).getPass();
         verify(req, times(0)).getSession();
-        verify(session, times(0)).setAttribute(anyString(), any());
     }
 
     @Test
@@ -81,6 +81,5 @@ public class LoginControllerTest {
         verify(resp, times(1)).sendRedirect(anyString());
         verify(user, times(1)).getPass();
         verify(req, times(0)).getSession();
-        verify(session, times(0)).setAttribute(anyString(), any());
     }
 }

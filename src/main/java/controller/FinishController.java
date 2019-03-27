@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import service.BattleService;
 import service.FinishService;
@@ -32,14 +31,16 @@ public class FinishController {
         this.battleService = battleService;
     }
 
+
     @GetMapping
     public ModelAndView finishView(HttpServletRequest req,
                                    HttpServletResponse resp) throws IOException {
         User u = userService.getUserAttributeFromSession(req.getSession());
+        Battle b = finishService.result(battleService.getBattleById((Integer) req.getSession().getAttribute("battleId")));
         if (u != null && u.equals(battleService.getBattleById(battleService.isUserInBattle2(u.getLogin())).getPlayer1())) {
-            return new ModelAndView("finish", "b", finishService.calculatePoints(battleService.getBattleById((Integer) req.getSession().getAttribute("battleId"))));
+            return new ModelAndView("finish", "b", b);
         } else if (u != null && u.equals(battleService.getBattleById(battleService.isUserInBattle2(u.getLogin())).getPlayer2())) {
-            return new ModelAndView("finish", "b", finishService.calculatePoints(battleService.inverse(battleService.getBattleById((Integer) req.getSession().getAttribute("battleId")))));
+            return new ModelAndView("finish", "b", battleService.inverse(b));
         } else {
             resp.sendRedirect("/fs/");
             return null;
@@ -52,13 +53,21 @@ public class FinishController {
                        HttpServletRequest req) throws IOException {
         User u = userService.getUserAttributeFromSession(req.getSession());
         if (u != null) {
+            if (!finishService.isFirstExit()) {
+                finishService.setFirstExit();
+                resp.sendRedirect("/fs/main");
+                return;
+            }
             Integer battleId = (Integer) req.getSession().getAttribute("battleId");
             Battle b = battleService.getBattleById(battleId);
+            finishService.deleteActivePlayers(b);
             finishService.deleteBattle((Integer) req.getSession().getAttribute("battleId"));
+            req.setAttribute("battleId", null);
             resp.sendRedirect("/fs/main/");
         } else {
             resp.sendRedirect("/fs/");
         }
     }
+
 
 }

@@ -296,6 +296,7 @@ public class BattleService {
         activePlayers.getActivePlayersList().put(u2.getLogin(), battleId);
     }
 
+
     public void doHeroPower(Battle b, String login) {
         b.setHeroUsePower(true);
         if (b.getPlayer1().getLogin().equals(login)) {
